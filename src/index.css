@@ -1,0 +1,230 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* CodeQuest Design System - Modern tech education theme */
+
+@layer base {
+  :root {
+    /* Core brand colors */
+    --background: 0 0% 100%;
+    --foreground: 224 71% 4%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 224 71% 4%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 224 71% 4%;
+
+    /* Primary brand - Tech purple gradient */
+    --primary: 263 70% 50%;
+    --primary-foreground: 0 0% 98%;
+    --primary-hover: 263 70% 45%;
+
+    /* Secondary - Complementary blue */
+    --secondary: 210 40% 96%;
+    --secondary-foreground: 224 71% 4%;
+
+    /* Accent - Bright highlight */
+    --accent: 196 94% 67%;
+    --accent-foreground: 224 71% 4%;
+
+    /* Success/learning colors */
+    --success: 142 71% 45%;
+    --success-foreground: 0 0% 98%;
+
+    /* Warning/attention */
+    --warning: 38 92% 50%;
+    --warning-foreground: 0 0% 98%;
+
+    --muted: 210 40% 96%;
+    --muted-foreground: 215 16% 47%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 98%;
+
+    --border: 214 32% 91%;
+    --input: 214 32% 91%;
+    --ring: 263 70% 50%;
+
+    --radius: 0.75rem;
+
+    /* Custom CodeQuest gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(263, 70%, 50%), hsl(293, 69%, 49%));
+    --gradient-secondary: linear-gradient(135deg, hsl(196, 94%, 67%), hsl(220, 89%, 65%));
+    --gradient-background: linear-gradient(180deg, hsl(0, 0%, 100%), hsl(263, 25%, 98%));
+    
+    /* Code theme colors */
+    --code-bg: 220 13% 18%;
+    --code-text: 220 14% 71%;
+    --code-keyword: 204 88% 65%;
+    --code-string: 95 68% 68%;
+    --code-comment: 220 10% 40%;
+
+    /* Animation variables */
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-bounce: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+
+    --sidebar-background: 0 0% 98%;
+
+    --sidebar-foreground: 240 5.3% 26.1%;
+
+    --sidebar-primary: 240 5.9% 10%;
+
+    --sidebar-primary-foreground: 0 0% 98%;
+
+    --sidebar-accent: 240 4.8% 95.9%;
+
+    --sidebar-accent-foreground: 240 5.9% 10%;
+
+    --sidebar-border: 220 13% 91%;
+
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  .dark {
+    --background: 224 71% 4%;
+    --foreground: 210 40% 98%;
+
+    --card: 224 63% 6%;
+    --card-foreground: 210 40% 98%;
+
+    --popover: 224 63% 6%;
+    --popover-foreground: 210 40% 98%;
+
+    --primary: 263 70% 60%;
+    --primary-foreground: 0 0% 98%;
+    --primary-hover: 263 70% 55%;
+
+    --secondary: 217 33% 17%;
+    --secondary-foreground: 210 40% 98%;
+
+    --accent: 196 94% 67%;
+    --accent-foreground: 224 71% 4%;
+
+    --success: 142 71% 45%;
+    --success-foreground: 0 0% 98%;
+
+    --warning: 38 92% 50%;
+    --warning-foreground: 0 0% 98%;
+
+    --muted: 217 33% 17%;
+    --muted-foreground: 215 20% 65%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 98%;
+
+    --border: 217 33% 17%;
+    --input: 217 33% 17%;
+    --ring: 263 70% 60%;
+
+    /* Dark mode gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(263, 70%, 60%), hsl(293, 69%, 59%));
+    --gradient-secondary: linear-gradient(135deg, hsl(196, 94%, 67%), hsl(220, 89%, 65%));
+    --gradient-background: linear-gradient(180deg, hsl(224, 71%, 4%), hsl(224, 47%, 6%));
+    --sidebar-background: 240 5.9% 10%;
+    --sidebar-foreground: 240 4.8% 95.9%;
+    --sidebar-primary: 224.3 76.3% 48%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 3.7% 15.9%;
+    --sidebar-accent-foreground: 240 4.8% 95.9%;
+    --sidebar-border: 240 3.7% 15.9%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    background: var(--gradient-background);
+    min-height: 100vh;
+  }
+
+  /* Custom animations */
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes pulse {
+    0%, 100% {
+      opacity: 1;
+    }
+    50% {
+      opacity: .7;
+    }
+  }
+
+  @keyframes gradient {
+    0%, 100% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+  }
+
+  .animate-fade-in-up {
+    animation: fadeInUp 0.6s ease-out;
+  }
+
+  .animate-pulse-slow {
+    animation: pulse 2s ease-in-out infinite;
+  }
+
+  .animate-gradient {
+    background-size: 200% 200%;
+    animation: gradient 3s ease infinite;
+  }
+}
+
+/* Code syntax highlighting */
+@layer components {
+  .code-block {
+    @apply bg-slate-900 text-slate-300 p-4 rounded-lg overflow-x-auto;
+    font-family: 'JetBrains Mono', 'Fira Code', 'Consolas', monospace;
+  }
+
+  .code-keyword {
+    @apply text-blue-400 font-semibold;
+  }
+
+  .code-string {
+    @apply text-green-400;
+  }
+
+  .code-comment {
+    @apply text-slate-500 italic;
+  }
+
+  .code-number {
+    @apply text-orange-400;
+  }
+
+  .gradient-text {
+    background: var(--gradient-primary);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .gradient-button {
+    background: var(--gradient-primary);
+    transition: var(--transition-smooth);
+  }
+
+  .gradient-button:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 10px 25px -5px hsl(var(--primary) / 0.25);
+  }
+}
